@@ -7,8 +7,11 @@ body {
     font-size: clamp(18px, 1.5rem, 24px);
     background-color: #DBC1A0;
     margin: 0;
-    
-    /* CSS variables */
+
+    /* PERSONAL NOTE:
+       perfectly contrasting camel color: hsl(33, 56%, 67%) on a #fafafa bg 
+       may or may not want later: #e6e6e6 mid-light gray */
+
     --frameColor: #f0f0f0;
     --linkColor: #2571c2;
     --linkColorHover: rgba(37, 113, 194, 0.438);
@@ -19,7 +22,6 @@ body {
     --articleTitle: hsl(33, 37%, 41%);
 }
 
-/* basic link style */
 a {
     color: var(--linkColor);
     transition: color .5s ease-in-out;
@@ -29,16 +31,12 @@ a:active {
     opacity: .5;
 }
 
-/* MOBILE main */
-
 main {
     width: 100vw;
     margin: auto;
     background-color: white;
     padding: 10% 7%;
 }
-
-/* #region MOBILE header */
 
 header {
     margin-bottom: 2vh;
@@ -112,15 +110,10 @@ header nav a:active {
     color: var(--linkColorHover);
 }
 
-/* #endregion */
-
-/* #region MOBILE article */
 article {
     background-color: var(--articleBackground);
     padding: 5vw 5vw 8vw 5vw;
 }
-
-/* #region MOBILE body text */
 
 article strong {
     color: var(--strong);
@@ -161,10 +154,6 @@ article a.button:active {
     color: white;
 }
 
-/* #endregion */
-
-/* #region MOBILE slides */
-
 div.slides {
     background-color: var(--frameColor);
     width: 100%;
@@ -192,8 +181,6 @@ img.slide {
     max-width: 100%;
     max-height: 100%;
 }
-
-/* #region MOBILE slides nav */
 
 .slides nav {
     display: flex;
@@ -223,11 +210,24 @@ img.slide {
 .slides .index {
     margin: auto;
 }
-/* #endregion */
 
-/* #endregion */
+/* NOT USING ANYMORE
 
-/* #region JS controls */
+.swipeNextNext {
+    animation: 1s ease-in-out 0s 1 forwards nextSwipeNext;
+}
+
+.swipeNextCurrent {
+    animation: 1s ease-in-out 0s 1 forwards nextSwipeCurrent;
+}
+
+.swipeBackNext {
+    animation: 1s ease-in-out 0s 1 forwards backSwipeNext;
+}
+
+.swipeBackCurrent {
+    animation: 1s ease-in-out 0s 1 forwards backSwipeCurrent;
+} */
 
 .hide {
     display: none;
@@ -241,7 +241,6 @@ img.slide {
     display: block;
     animation: .5s ease-in 0s 1 forwards fadeIn;
 }
-/* #endregion */
 
 footer {
     margin: auto;
@@ -250,16 +249,7 @@ footer {
     font-size: clamp(18px, 1.5vw, 20px);
 }
 
-/* #endregion */
-
-div.disclaimer {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
-    padding: 3vw 3vw 3vw 5vw;
-    background-color: rgba(255, 255, 255, .6);
-}
-
-/* #region DESKTOP media quiery */
+/* #region media quiery */
 
 @media only screen and (min-width: 650px) {
     body {
@@ -273,8 +263,6 @@ div.disclaimer {
         text-decoration: none;
     }
 
-    /* DESKTOP main */
-
     main {
         width: 90%;
         max-width: 1600px;
@@ -282,7 +270,6 @@ div.disclaimer {
         padding: 3rem;
     }
 
-    /* #region DESKTOP header */
     header {
         margin-bottom: 1rem;
     }
@@ -324,10 +311,7 @@ div.disclaimer {
         background-color: white;
         color: var(--linkColorHover);
     }
-
-    /* #endregion*/
     
-    /* #region DESKTOP article */
     article {
         background-color: var(--articleBackground);
         padding: 2rem;
@@ -357,8 +341,6 @@ div.disclaimer {
         color: white;
     }
 
-    /* #region DESKTOP slides */
-
     .frame {
         padding: .5rem 1.5rem 1rem 1.5rem;
     }
@@ -387,9 +369,6 @@ div.disclaimer {
         content: "\00BB";
         margin-left: .25rem;
     }
-
-    /* #endregion */
-    /* #endregion */
     
 }
 
@@ -417,5 +396,47 @@ div.disclaimer {
         display: contents;
     }
 }
+
+/* NOT USING ANYMORE
+
+@keyframes nextSwipeNext {
+    0% {
+        transform: translateX(200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes nextSwipeCurrent {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+@keyframes backSwipeNext {
+    0% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes backSwipeCurrent {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+} */
 
 /* #endregion */
