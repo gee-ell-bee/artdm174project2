@@ -20,6 +20,10 @@ function init() {
         slide.classList.add("hide");
     });
 
+    //reveal buttons
+    back_btn.classList.toggle("hide");
+    next_btn.classList.toggle("hide");
+
     //add counter
     ind.innerHTML = `${index + 1} / ${slides.length}`;
 
@@ -39,20 +43,14 @@ function changeSlide(e) {
     // shortcut vars
     let showing = document.querySelector(".current");
     let nextUp = "";
+    let showingClass = showing.classList;
 
+    // current image animation
+    showingClass.toggle("current");
+    showingClass.toggle("fadeOut");
 
     // actions taken for NEXT button
     if (e.target.className == "next-btn") {
-
-        // current image class lists
-        let currentClass = showing.classList;
-
-        // reset current image's class lists
-        resetCurrentClasses(currentClass);
-        resetNextClasses(currentClass);
-
-        // current image animation
-        currentClass.toggle("swipeNextCurrent");
 
         // initial nextUp & index value changes
         nextUp = showing.nextElementSibling;
@@ -69,37 +67,19 @@ function changeSlide(e) {
             nextUp = slides[0];
         }
 
-        // matching new index number to page text
-        ind.innerHTML = `${index + 1} / ${slides.length}`;
-
-
         // next image class lists
-        let nextClass = nextUp.classList;
+        //let nextClass = nextUp.classList;
 
         //reset next image's class lists
-        resetNextClasses(nextClass);
-        resetCurrentClasses(nextClass);
+        //resetNextClasses(nextClass);
+        //resetshowingClasses(nextClass);
 
         // next image animation
-        nextUp.classList.toggle("swipeNextNext");
-
-        // reset classlists
-        //showing.classList.toggle("swipeNextCurrent");
         //nextUp.classList.toggle("swipeNextNext");
     }
 
     // actions taken for BACK button
     if (e.target.className == "back-btn") {
-
-        // current image class lists
-        let currentClass = showing.classList;
-
-        // reset current image's class lists
-        resetCurrentClasses(currentClass);
-        resetNextClasses(currentClass);
-
-        // current image animation
-        showing.classList.toggle("swipeBackCurrent");
 
         // initial nextUp & index value changes
         nextUp = showing.previousElementSibling;
@@ -115,40 +95,29 @@ function changeSlide(e) {
         if (nextUp.nodeName !== "IMG") {
             nextUp = slides[slides.length - 1];
         }
-
-        // matching new index number to page text
-        ind.innerHTML = `${index + 1} / ${slides.length}`;
-
-        // next image class lists
-        let nextClass = nextUp.classList;
-
-        //reset next image's class lists
-        resetNextClasses(nextClass);
-        resetCurrentClasses(nextClass);
-
-        // next image animation
-        nextUp.classList.add("swipeBackNext");
-
-        // reset classlists
-        //showing.classList.toggle("swipeBackCurrent");
-        //nextUp.classList.toggle("swipeBackNext");
-
     }
 
-    // activate next image
-    nextUp.classList.toggle("hide");
-    showing.classList.toggle("current");
-    nextUp.classList.toggle("current");
+    let nextClass = nextUp.classList;
 
-    // deactivate current image
+    // deactivate current image listener
     showing.addEventListener("animationend", () => {
         showing.classList.toggle("hide");
+        showing.classList.toggle("fadeOut");
+
+        // activate next image
+        nextClass.toggle("hide");
+        nextClass.toggle("current");
     });
     
+    // matching new index number to page text
+    ind.innerHTML = `${index + 1} / ${slides.length}`;
+
 }
 
+
+/*
 // to reset the current image's classes before starting a new animation
-function resetCurrentClasses(classList) {
+function resetshowingClasses(classList) {
 
     //removing current image's "next" animation
     if(classList.contains("swipeNextCurrent")) {
@@ -172,4 +141,4 @@ function resetNextClasses(classList) {
     if(classList.contains("swipeBackNext")) {
         classList.remove("swipeBackNext");
     }
-}
+} */
