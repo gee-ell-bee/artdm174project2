@@ -8,11 +8,14 @@ let index = 0;
 const frame = document.querySelector(".frame");
 const slides = frame.querySelectorAll("img");
 
+
+// FUNCTIONS
+
 function init() {
 
     // shortcut variables
-    const back_btn = document.querySelector(".back-btn");
-    const next_btn = document.querySelector(".next-btn");
+    const backBtn = document.querySelector(".backBtn");
+    const nextBtn = document.querySelector(".nextBtn");
 
     // if JS is active:
     //hide all images
@@ -21,19 +24,20 @@ function init() {
     });
 
     //reveal buttons
-    back_btn.classList.toggle("hide");
-    next_btn.classList.toggle("hide");
+    backBtn.classList.remove("hide");
+    nextBtn.classList.remove("hide");
 
     //add counter
     ind.innerHTML = `${index + 1} / ${slides.length}`;
 
-    // show the first slide
-    slides[0].classList.remove("hide");
+    //show the first slide
+    slides[0].classList.toggle("hide");
 
-    // button event listeners
-    next_btn.addEventListener("click", changeSlide);
-    back_btn.addEventListener("click", changeSlide);
+    //button event listeners
+    nextBtn.addEventListener("click", changeSlide);
+    backBtn.addEventListener("click", changeSlide);
 }
+
 
 function changeSlide(e) {
 
@@ -43,14 +47,9 @@ function changeSlide(e) {
     // shortcut vars
     let showing = document.querySelector(".current");
     let nextUp = "";
-    let showingClass = showing.classList;
-
-    // current image animation
-    showingClass.toggle("current");
-    showingClass.toggle("fadeOut");
 
     // actions taken for NEXT button
-    if (e.target.className == "next-btn") {
+    if (e.target.className == "nextBtn") {
 
         // initial nextUp & index value changes
         nextUp = showing.nextElementSibling;
@@ -66,20 +65,10 @@ function changeSlide(e) {
         if (nextUp.nodeName !== "IMG") {
             nextUp = slides[0];
         }
-
-        // next image class lists
-        //let nextClass = nextUp.classList;
-
-        //reset next image's class lists
-        //resetNextClasses(nextClass);
-        //resetshowingClasses(nextClass);
-
-        // next image animation
-        //nextUp.classList.toggle("swipeNextNext");
     }
 
     // actions taken for BACK button
-    if (e.target.className == "back-btn") {
+    if (e.target.className == "backBtn") {
 
         // initial nextUp & index value changes
         nextUp = showing.previousElementSibling;
@@ -97,48 +86,28 @@ function changeSlide(e) {
         }
     }
 
-    let nextClass = nextUp.classList;
+    // matching new index number to page text
+    ind.innerHTML = `${index + 1} / ${slides.length}`;
 
-    // deactivate current image listener
+    // creating variables that match "if" cases
+    let showingClass = showing.classList;
+    let nextClass = nextUp.classList;
+    const once = {
+        once : true
+    };
+
+
+    // current image animation
+    showingClass.toggle("current");
+    showingClass.toggle("fadeOut");
+
+    // deactivate current image & activate next image listener
     showing.addEventListener("animationend", () => {
-        showing.classList.toggle("hide");
-        showing.classList.toggle("fadeOut");
+        showingClass.toggle("hide");
+        showingClass.toggle("fadeOut");
 
         // activate next image
         nextClass.toggle("hide");
         nextClass.toggle("current");
-    });
-    
-    // matching new index number to page text
-    ind.innerHTML = `${index + 1} / ${slides.length}`;
-
+    }, once);
 }
-
-
-/*
-// to reset the current image's classes before starting a new animation
-function resetshowingClasses(classList) {
-
-    //removing current image's "next" animation
-    if(classList.contains("swipeNextCurrent")) {
-        classList.remove("swipeNextCurrent");
-    }
-
-    //removing current image's "back" animation
-    if(classList.contains("swipeBackCurrent")) {
-        classList.remove("swipeBackCurrent");
-    }
-}
-
-function resetNextClasses(classList) {
-
-    //removing next image's "next" animation
-    if(classList.contains("swipeNextNext")) {
-        classList.remove("swipeNextNext");
-    }
-
-    //removing next image's "back" animation
-    if(classList.contains("swipeBackNext")) {
-        classList.remove("swipeBackNext");
-    }
-} */

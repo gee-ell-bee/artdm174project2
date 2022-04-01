@@ -8,7 +8,8 @@ body {
     background-color: #DBC1A0;
     margin: 0;
 
-    /* perfectly contrasting camel color: hsl(33, 56%, 67%) on a #fafafa bg 
+    /* PERSONAL NOTE:
+       perfectly contrasting camel color: hsl(33, 56%, 67%) on a #fafafa bg 
        may or may not want later: #e6e6e6 mid-light gray */
 
     --frameColor: #f0f0f0;
@@ -112,11 +113,11 @@ article {
     padding: 5vw 5vw 8vw 5vw;
 }
 
-section strong {
+article strong {
     color: var(--strong);
 }
 
-section.title h1 {
+article h2 {
     margin: auto;
     padding: 2vw;
     text-align: center;
@@ -124,15 +125,15 @@ section.title h1 {
     color: var(--articleTitle);
 }
 
-section.info {
-    padding: 0 10% 3vh 10%;
+article p {
+    padding: 0 10% 1vh 10%;
     font-size: clamp(18px, 1.5vw, 20px);
     line-height: 1.5;
 }
 
-section a.button {
+article a.button {
     display: block;
-    margin: 3vw auto 1vh auto;
+    margin: 3vw auto 3vh auto;
     text-align: center;
     color: var(--linkColor);
     background-color: var(--frameColor);
@@ -146,13 +147,13 @@ section a.button {
     transition: color 1s ease-in-out;
 }
 
-section a.button:active {
+article a.button:active {
     background-color: rgb(226, 226, 226);
     border: 0px dashed rgb(122, 122, 122);
     color: white;
 }
 
-section.slides {
+div.slides {
     background-color: var(--frameColor);
     width: 100%;
     margin: auto;
@@ -205,7 +206,8 @@ img.slide {
     margin: auto;
 }
 
-/*
+/* NOT USING ANYMORE
+
 .swipeNextNext {
     animation: 1s ease-in-out 0s 1 forwards nextSwipeNext;
 }
@@ -310,29 +312,29 @@ footer {
         padding: 2rem;
     }
 
-    section.title h1 {
+    article h2 {
         padding: .5rem;
     }
     
-    section.info {
+    article p {
         padding: 0 10% 2rem 10%;
         font-size: clamp(18px, 1.5vw, 20px);
         line-height: 1.5;
     }
 
-    section a.button {
+    article a.button {
         margin: 2rem auto 1rem auto;
         padding: 1.5rem 3rem;
         width: max-content;
     }
 
-    section a.button:active {
+    article a.button:active {
         background-color: initial;
         border: 0px dashed rgb(122, 122, 122);
         color: initial;
     }
 
-    section a.button:hover {
+    article a.button:hover {
         background-color: rgb(226, 226, 226);
         border: 0px dashed rgb(122, 122, 122);
         color: white;
@@ -352,12 +354,12 @@ footer {
         padding: 0 2.5rem 2rem 2.5rem;
     }
 
-    .back-btn::before {
+    .backBtn::before {
         content: "\00AB";
         margin-right: .25rem;
     }
     
-    .next-btn::after {
+    .nextBtn::after {
         content: "\00BB";
         margin-left: .25rem;
     }
@@ -382,9 +384,6 @@ footer {
         display: block;
         opacity: 0;
     }
-    50% {
-        display: block;
-        opacity: 0;
     }
     100% {
         opacity: 1;
@@ -392,7 +391,9 @@ footer {
     }
 }
 
-/* @keyframes nextSwipeNext {
+/* NOT USING ANYMORE
+
+@keyframes nextSwipeNext {
     0% {
         transform: translateX(200%);
     }
