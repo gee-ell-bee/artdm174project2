@@ -250,8 +250,6 @@ footer {
     font-size: clamp(18px, 1.5vw, 20px);
 }
 
-/* #endregion */
-
 div.disclaimer {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
@@ -259,7 +257,7 @@ div.disclaimer {
     background-color: rgba(255, 255, 255, .6);
 }
 
-/* #region DESKTOP media quiery */
+/* #region media quiery */
 
 @media only screen and (min-width: 650px) {
     body {
@@ -409,7 +407,6 @@ div.disclaimer {
     0% {
         display: block;
         opacity: 0;
-    }
     }
     100% {
         opacity: 1;
