@@ -161,18 +161,22 @@ div.slides {
 }
 
 .frame {
-    padding: 0 5vw 0 5vw;
+    padding: 3vw 5vw 0 5vw;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.frameJs {
     width: 100%;
     overflow: hidden;
     height: 30vh;
     min-height: max-content;
-    margin: auto;
-    display: flex;
     justify-content: center;
 }
 
 img.slide {
-    margin: auto;
+    margin: 2vw auto;
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
@@ -338,6 +342,10 @@ footer {
     }
 
     .frame {
+        padding: .5rem 1.5rem 1rem 1.5rem;
+    }
+
+    .frameJs {
         padding: 0 1.5rem 1rem 1.5rem;
         height: 50vh;
     }
@@ -345,6 +353,7 @@ footer {
     img.slide {
         margin: 1rem auto;
         padding: 1.5rem 1rem .5rem 1rem;
+
     }
 
     .slides nav {

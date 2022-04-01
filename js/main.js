@@ -27,6 +27,9 @@ function init() {
     backBtn.classList.remove("hide");
     nextBtn.classList.remove("hide");
 
+    //add styles to frame
+    frame.classList.add("frameJs");
+
     //add counter
     ind.innerHTML = `${index + 1} / ${slides.length}`;
 
