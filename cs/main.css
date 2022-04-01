@@ -176,10 +176,6 @@ img.slide {
     max-height: 100%;
 }
 
-.slide {
-    //display: block;
-}
-
 .slides nav {
     display: flex;
     padding: 3vw;
