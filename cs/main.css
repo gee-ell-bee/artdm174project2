@@ -253,8 +253,22 @@ footer {
 div.disclaimer {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
-    padding: 3vw 3vw 3vw 5vw;
+    padding: 5vw 3vw 5vw 5vw;
     background-color: rgba(255, 255, 255, .6);
+}
+
+.pageNav {
+    color: var(--linkColor);
+    display: block;
+    position: fixed;
+    bottom: 1%;
+    left: 2%;
+    transition: color 1s ease-in-out .125s;
+}
+
+.pageNav:hover {
+    transition: color .25s ease-in-out .125s;
+    color:var(--linkColorHover);
 }
 
 /* #region media quiery */
