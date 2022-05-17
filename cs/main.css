@@ -256,18 +256,28 @@ div.disclaimer {
     background-color: rgba(255, 255, 255, .6);
 }
 
-.pageNav {
+
+a.artdm174 {
     color: var(--linkColor);
     display: block;
     position: fixed;
-    bottom: 1%;
-    left: 2%;
+    font-weight: bold;
     transition: color 1s ease-in-out .125s;
 }
 
-.pageNav:hover {
+a.artdm174:hover {
     transition: color .25s ease-in-out .125s;
     color:var(--linkColorHover);
+}
+
+a.artdm174.jump {
+    bottom: 1%;
+    left: 2%;
+}
+
+a.artdm174.next {
+    bottom: 1%;
+    right: 2%;
 }
 
 /* #region media quiery */
